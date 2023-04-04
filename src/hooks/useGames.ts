@@ -6,8 +6,10 @@ interface IGameRes {
     count: number;
     results: [];
   }
-  interface Igame {
+ export interface Igame {
     name: string;
+    id: number;
+    background_image: string;
   }
 
 const useGames = () => {
