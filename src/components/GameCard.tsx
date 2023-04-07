@@ -1,7 +1,7 @@
-import { Card, CardBody, Heading, Image } from '@chakra-ui/react'
-import React from 'react'
-import { Igame } from '../hooks/useGames';
-
+import { Card, CardBody, Heading, Image, Text } from '@chakra-ui/react'
+import { Igame, Platform } from '../hooks/useGames';
+import { platform } from 'os';
+import PlatformIconList from './PlatformIconList';
 interface Props{
   game: Igame
 }
@@ -14,6 +14,7 @@ function GameCard({game}:Props) {
           <Heading fontSize={{sm:"sm", md:"md", lg:"lg"}}>
             {game.name}
           </Heading>
+          <PlatformIconList platforms={game.parent_platforms.map(platforms => platforms.platform)} />
         </CardBody>
     </Card>
   )

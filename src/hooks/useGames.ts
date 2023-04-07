@@ -6,10 +6,16 @@ interface IGameRes {
     count: number;
     results: [];
   }
+  export interface Platform{
+    id: number;
+    name: string;
+    slug: string;
+  }
  export interface Igame {
     name: string;
     id: number;
     background_image: string;
+    parent_platforms: {platform : Platform}[]
   }
 
 const useGames = () => {
