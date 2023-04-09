@@ -22,14 +22,16 @@ interface IGameRes {
 const useGames = () => {
     const [games, setGames] = useState<Igame[]>([]);
     const [error, setError] = useState("");
-  
+    const [loading, setLoading]=useState(true);
+
     useEffect(() => {
         const controller = new AbortController();
-        console.log(controller)
-      apiClient
+        setLoading(true)
+        apiClient
         .get<IGameRes>("/games",{signal: controller.signal})
         .then((res) => {
           setGames(res.data.results);
+          setLoading(false);
         })
         .catch((err) => {
             if(err instanceof CanceledError) return;
@@ -37,6 +39,6 @@ const useGames = () => {
         return () => controller.abort();
     }, []);
   
-return {error, games}
+return {error, games,loading}
 }
 export default useGames;
