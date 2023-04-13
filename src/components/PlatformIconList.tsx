@@ -35,7 +35,7 @@ function PlatformIconList({ platforms }: Props) {
         return (
           <>
             {/* <Text>{platform.name}</Text> */}
-            <Icon as={iconMap[platform.slug]} />
+            <Icon key={platform.id} as={iconMap[platform.slug]} />
           </>
         );
       })}
