@@ -5,13 +5,13 @@ import { Genre } from "./useGenres";
     name: string;
     slug: string;
   }
- export interface Igame {
+ export interface IGame {
     name: string;
     id: number;
     background_image: string;
     parent_platforms: {platform : Platform}[];
-    metacritic: number
+    metacritic: number;
   }
 
-const useGames = (selectedGenre: Genre | null) => useData<Igame>('/games', { params: {genres: selectedGenre?.id} },[selectedGenre?.id])
+const useGames = (selectedGenre: Genre | null) => useData<IGame>('/games', { params: {genres: selectedGenre?.id} },[selectedGenre?.id]);
 export default useGames;
